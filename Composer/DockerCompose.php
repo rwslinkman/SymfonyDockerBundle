@@ -13,8 +13,22 @@ namespace SymfonyDocker\DockerBundle\Composer;
 
 final class DockerCompose
 {
+    /**
+     * function createSymbolicLink
+     * Creates symbolic link for docker-compose file.
+     * Might fail for Windows XP, Windows Server 2003 and earlier
+     * as they do not support the mklink command
+     */
     public static function createSymbolicLink()
     {
-        shell_exec("ln -s vendor/symfony-docker/docker-bundle/Resources/config/docker/docker-compose.yml docker-compose.yml");
+        $isWindows = strtoupper(substr(PHP_OS, 0, 3)) === 'WIN';
+        if($isWindows) {
+            // Not required
+            return;
+        }
+
+        $target = "vendor/symfony-docker/symfony-docker-bundle/Resources/config/docker/docker-compose.yml";
+        $linkName = "docker-compose.yml";
+        shell_exec("ln -s ".$target." ".$linkName);
     }
 }

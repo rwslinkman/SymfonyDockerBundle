@@ -9,7 +9,7 @@ app:
 
 php:
     container_name: symfony-docker-php
-    build: vendor/symfony-docker/docker-bundle/Resources/config/docker/php
+    build: php
     volumes_from:
         - app
     links:
@@ -17,7 +17,7 @@ php:
         - memcached
 nginx:
   container_name: symfony-docker-nginx
-  build: vendor/symfony-docker/docker-bundle/Resources/config/docker/nginx
+  build: nginx
   volumes_from:
       - app
   links:

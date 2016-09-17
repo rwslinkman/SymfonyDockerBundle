@@ -1,5 +1,5 @@
 {
-    "name": "drgomesp/symfony-docker-bundle",
+    "name": "rwslinkman/symfony-docker-bundle",
     "description": "A Symfony Bundle that ships in Docker and Docker Compose support out-of-the-box",
     "type": "symfony-bundle",
     "license": "MIT",
@@ -10,6 +10,10 @@
         {
             "name": "Daniel Ribeiro",
             "email": "drgomesp@gmail.com"
+        },
+        {
+            "name": "Rick Slinkman",
+            "email": "rw.slinkman@gmail.com"
         }
     ],
     "minimum-stability": "stable",
